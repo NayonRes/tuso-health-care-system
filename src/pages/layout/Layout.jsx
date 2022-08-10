@@ -278,97 +278,14 @@ export default function Layout() {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const menuOpen = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+   
+  
 
   const [open, setOpen] = useState(true);
-  const manageOpen = (id) => {
-    switch (id) {
-      case "Supports":
-        setKycRequestOpen(!kycRequestOpen);
-        setOnboardingOpen(false);
-        setManageRolesOpen(false);
-        setManageAccessOpen(false);
-        setBankingLogOpen(false);
-        break;
+  
+  
 
-      case "Users":
-        setOnboardingOpen(false);
-        setManageRolesOpen(!manageRolesOpen);
-        setManageAccessOpen(false);
-        setKycRequestOpen(false);
-        setBankingLogOpen(false);
-        break;
-      case "Configuration":
-        setOnboardingOpen(false);
-        setManageRolesOpen(false);
-        setManageAccessOpen(!manageAccessOpen);
-        setKycRequestOpen(false);
-        setBankingLogOpen(false);
-        break;
-
-      case "close":
-        setOnboardingOpen(false);
-        setManageRolesOpen(false);
-        setManageAccessOpen(false);
-        setKycRequestOpen(false);
-        setBankingLogOpen(false);
-        break;
-    }
-  };
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(!open);
-  };
-
-  const checkSupportsRoute = () => {
-    const userPathname = [
-      "/request-ticket",
-      "/ticket-details",
-      "/service-history",
-      "/incident-list",
-    ];
-    if (userPathname.includes(pathname)) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-  const checkUserRoute = () => {
-    const userPathname = [
-      "/user-list",
-      "/profile-creation",
-      "/user-access-control",
-    ];
-    if (userPathname.includes(pathname)) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-  const checkConfigurationRoute = () => {
-    const userPathname = [
-      "/country",
-      "/role",
-      "/department",
-      "/category",
-      "/quick-list",
-      "/urgency",
-      "/company",
-    ];
-    if (userPathname.includes(pathname)) {
-      return true;
-    } else {
-      return false;
-    }
-  };
+   
   const withoutLayout = ["/", "/forgot-password", "/reset-password", "/verify"];
   return (
     <div>
