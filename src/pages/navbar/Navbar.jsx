@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@mui/styles";
 import { useSnackbar } from "notistack";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import styles from "./Navbar.module.css";
+import styles from "./Test.module.css";
 import axios from "axios";
 import Button from "@mui/material/Button";
 import AcUnitOutlinedIcon from "@mui/icons-material/AcUnitOutlined";
@@ -12,6 +12,7 @@ import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import SupportAgentOutlinedIcon from "@mui/icons-material/SupportAgentOutlined";
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 import ApiOutlinedIcon from "@mui/icons-material/ApiOutlined";
+import KeyboardArrowRightOutlinedIcon from "@mui/icons-material/KeyboardArrowRightOutlined";
 // import RefreshToken from "../../services/RefreshToken";
 const useStyles = makeStyles((theme) => ({
   buttonStyle: {
@@ -85,8 +86,8 @@ const Navbar = () => {
           <Button
             disableRipple
             disableElevation
-            className={`${classes.buttonStyle} ${
-              pathname === "/dashboard" ? classes.activeButtonStyle : null
+            className={`${styles.button_style} ${
+              pathname === "/dashboard" ? styles.active_button_style : null
             }`}
             startIcon={<DashboardOutlinedIcon />}
             component={Link}
@@ -99,8 +100,8 @@ const Navbar = () => {
           <Button
             disableRipple
             disableElevation
-            className={`${classes.buttonStyle} ${
-              checkSupportsRoute() ? classes.activeButtonStyle : null
+            className={`${styles.button_style} ${
+              checkSupportsRoute() ? styles.active_button_style : null
             }`}
             startIcon={<SupportAgentOutlinedIcon />}
             endIcon={<KeyboardArrowDownOutlinedIcon />}
@@ -108,29 +109,72 @@ const Navbar = () => {
             Supports
           </Button>
           <div className={styles.dropdown_content}>
-            <Link to="/request-ticket" className={styles.nav_item}>
-              <div className={styles.left_Icon}>
-                <AcUnitOutlinedIcon style={{ fontSize: "16px" }} />
-              </div>
-              <div>Request ticket</div>
+            <Link to="/request-ticket" className={styles.nav_container}>
+              <section className={styles.nav_item}>
+                <div className={styles.left_Icon}>
+                  <AcUnitOutlinedIcon />
+                </div>
+                <div className={styles.list_item_title}>Request ticket</div>
+              </section>
             </Link>
-            <Link to="/ticket-details" className={styles.nav_item}>
-              <div className={styles.left_Icon}>
-                <AcUnitOutlinedIcon style={{ fontSize: "16px" }} />
-              </div>
-              <div>Ticket details</div>
+            <Link to="/ticket-details" className={styles.nav_container}>
+              <section className={styles.nav_item}>
+                <div className={styles.left_Icon}>
+                  <AcUnitOutlinedIcon />
+                </div>
+                <div className={styles.list_item_title}>Ticket details</div>
+              </section>
             </Link>
-            <Link to="/service-history" className={styles.nav_item}>
-              <div className={styles.left_Icon}>
-                <AcUnitOutlinedIcon style={{ fontSize: "16px" }} />
-              </div>
-              <div>Service history</div>
+            <Link to="/service-history" className={styles.nav_container}>
+              <section className={styles.nav_item}>
+                <div className={styles.left_Icon}>
+                  <AcUnitOutlinedIcon />
+                </div>
+                <div className={styles.list_item_title}>
+                  Service history
+                  <KeyboardArrowRightOutlinedIcon />
+                </div>
+              </section>
+
+              <section className={styles.nav_subitem_dropdown_content}>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>Test 1</div>
+                </Link>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>test 2</div>
+                </Link>
+              </section>
             </Link>
-            <Link to="/incident-list" className={styles.nav_item}>
-              <div className={styles.left_Icon}>
-                <AcUnitOutlinedIcon style={{ fontSize: "16px" }} />
-              </div>
-              <div>Incident list</div>
+            <Link to="/incident-list" className={styles.nav_container}>
+              <section className={styles.nav_item}>
+                <div className={styles.left_Icon}>
+                  <AcUnitOutlinedIcon />
+                </div>
+                <div className={styles.list_item_title}>
+                  Incident list
+                  <KeyboardArrowRightOutlinedIcon />
+                </div>
+              </section>
+              <section className={styles.nav_subitem_dropdown_content}>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>Demo 1</div>
+                </Link>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>demo 2</div>
+                </Link>
+              </section>
             </Link>
           </div>
         </div>
@@ -138,8 +182,8 @@ const Navbar = () => {
           <Button
             disableRipple
             disableElevation
-            className={`${classes.buttonStyle} ${
-              checkUserRoute() ? classes.activeButtonStyle : null
+            className={`${styles.button_style} ${
+              checkUserRoute() ? styles.active_button_style : null
             }`}
             startIcon={<GroupsOutlinedIcon />}
             endIcon={<KeyboardArrowDownOutlinedIcon />}
@@ -147,23 +191,83 @@ const Navbar = () => {
             Users
           </Button>
           <div className={styles.dropdown_content}>
-            <Link to="/user-list" className={styles.nav_item}>
-              <div className={styles.left_Icon}>
-                <AcUnitOutlinedIcon style={{ fontSize: "16px" }} />
-              </div>
-              <div>User list</div>
+            <Link to="/user-list" className={styles.nav_container}>
+              <section className={styles.nav_item}>
+                <div className={styles.left_Icon}>
+                  <AcUnitOutlinedIcon />
+                </div>
+                <div className={styles.list_item_title}>
+                  User list
+                  <KeyboardArrowRightOutlinedIcon />
+                </div>
+              </section>
+
+              <section className={styles.nav_subitem_dropdown_content}>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>Test 1</div>
+                </Link>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>test 2</div>
+                </Link>
+              </section>
             </Link>
-            <Link to="/profile-creation" className={styles.nav_item}>
-              <div className={styles.left_Icon}>
-                <AcUnitOutlinedIcon style={{ fontSize: "16px" }} />
-              </div>
-              <div>Profile creation</div>
+            <Link to="/profile-creation" className={styles.nav_container}>
+              <section className={styles.nav_item}>
+                <div className={styles.left_Icon}>
+                  <AcUnitOutlinedIcon />
+                </div>
+                <div className={styles.list_item_title}>
+                  Profile creation
+                  <KeyboardArrowRightOutlinedIcon />
+                </div>
+              </section>
+
+              <section className={styles.nav_subitem_dropdown_content}>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>Test 1</div>
+                </Link>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>test 2</div>
+                </Link>
+              </section>
             </Link>
-            <Link to="/user-access-control" className={styles.nav_item}>
-              <div className={styles.left_Icon}>
-                <AcUnitOutlinedIcon style={{ fontSize: "16px" }} />
-              </div>
-              <div>User access control</div>
+            <Link to="/user-access-control" className={styles.nav_container}>
+              <section className={styles.nav_item}>
+                <div className={styles.left_Icon}>
+                  <AcUnitOutlinedIcon />
+                </div>
+                <div className={styles.list_item_title}>
+                  User access control
+                  <KeyboardArrowRightOutlinedIcon />
+                </div>
+              </section>
+
+              <section className={styles.nav_subitem_dropdown_content}>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>Test 1</div>
+                </Link>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>test 2</div>
+                </Link>
+              </section>
             </Link>
           </div>
         </div>
@@ -171,8 +275,8 @@ const Navbar = () => {
           <Button
             disableRipple
             disableElevation
-            className={`${classes.buttonStyle} ${
-              checkConfigurationRoute() ? classes.activeButtonStyle : null
+            className={`${styles.button_style} ${
+              checkConfigurationRoute() ? styles.active_button_style : null
             }`}
             startIcon={<ApiOutlinedIcon />}
             endIcon={<KeyboardArrowDownOutlinedIcon />}
@@ -180,47 +284,187 @@ const Navbar = () => {
             Configuration
           </Button>
           <div className={styles.dropdown_content}>
-            <Link to="/country" className={styles.nav_item}>
-              <div className={styles.left_Icon}>
-                <AcUnitOutlinedIcon style={{ fontSize: "16px" }} />
-              </div>
-              <div>Country</div>
+            <Link to="/country" className={styles.nav_container}>
+              <section className={styles.nav_item}>
+                <div className={styles.left_Icon}>
+                  <AcUnitOutlinedIcon />
+                </div>
+                <div className={styles.list_item_title}>
+                  Counery
+                  <KeyboardArrowRightOutlinedIcon />
+                </div>
+              </section>
+
+              <section className={styles.nav_subitem_dropdown_content}>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>Test 1</div>
+                </Link>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>test 2</div>
+                </Link>
+              </section>
             </Link>
-            <Link to="/role" className={styles.nav_item}>
-              <div className={styles.left_Icon}>
-                <AcUnitOutlinedIcon style={{ fontSize: "16px" }} />
-              </div>
-              <div>Role</div>
+            <Link to="/role" className={styles.nav_container}>
+              <section className={styles.nav_item}>
+                <div className={styles.left_Icon}>
+                  <AcUnitOutlinedIcon />
+                </div>
+                <div className={styles.list_item_title}>
+                  Role
+                  <KeyboardArrowRightOutlinedIcon />
+                </div>
+              </section>
+
+              <section className={styles.nav_subitem_dropdown_content}>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>Test 1</div>
+                </Link>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>test 2</div>
+                </Link>
+              </section>
             </Link>
-            <Link to="/department" className={styles.nav_item}>
-              <div className={styles.left_Icon}>
-                <AcUnitOutlinedIcon style={{ fontSize: "16px" }} />
-              </div>
-              <div>Department</div>
+            <Link to="/department" className={styles.nav_container}>
+              <section className={styles.nav_item}>
+                <div className={styles.left_Icon}>
+                  <AcUnitOutlinedIcon />
+                </div>
+                <div className={styles.list_item_title}>
+                  Department
+                  <KeyboardArrowRightOutlinedIcon />
+                </div>
+              </section>
+
+              <section className={styles.nav_subitem_dropdown_content}>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>Test 1</div>
+                </Link>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>test 2</div>
+                </Link>
+              </section>
             </Link>
-            <Link to="/category" className={styles.nav_item}>
-              <div className={styles.left_Icon}>
-                <AcUnitOutlinedIcon style={{ fontSize: "16px" }} />
-              </div>
-              <div>Category</div>
+            <Link to="/category" className={styles.nav_container}>
+              <section className={styles.nav_item}>
+                <div className={styles.left_Icon}>
+                  <AcUnitOutlinedIcon />
+                </div>
+                <div className={styles.list_item_title}>
+                  Category
+                  <KeyboardArrowRightOutlinedIcon />
+                </div>
+              </section>
+
+              <section className={styles.nav_subitem_dropdown_content}>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>Test 1</div>
+                </Link>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>test 2</div>
+                </Link>
+              </section>
             </Link>
-            <Link to="/quick-list" className={styles.nav_item}>
-              <div className={styles.left_Icon}>
-                <AcUnitOutlinedIcon style={{ fontSize: "16px" }} />
-              </div>
-              <div>Quick list</div>
+            <Link to="/quick-list" className={styles.nav_container}>
+              <section className={styles.nav_item}>
+                <div className={styles.left_Icon}>
+                  <AcUnitOutlinedIcon />
+                </div>
+                <div className={styles.list_item_title}>
+                  Quick list
+                  <KeyboardArrowRightOutlinedIcon />
+                </div>
+              </section>
+
+              <section className={styles.nav_subitem_dropdown_content}>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>Test 1</div>
+                </Link>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>test 2</div>
+                </Link>
+              </section>
             </Link>
-            <Link to="/urgency" className={styles.nav_item}>
-              <div className={styles.left_Icon}>
-                <AcUnitOutlinedIcon style={{ fontSize: "16px" }} />
-              </div>
-              <div>Urgency</div>
+            <Link to="/urgency" className={styles.nav_container}>
+              <section className={styles.nav_item}>
+                <div className={styles.left_Icon}>
+                  <AcUnitOutlinedIcon />
+                </div>
+                <div className={styles.list_item_title}>
+                  Urgency
+                  <KeyboardArrowRightOutlinedIcon />
+                </div>
+              </section>
+
+              <section className={styles.nav_subitem_dropdown_content}>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>Test 1</div>
+                </Link>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>test 2</div>
+                </Link>
+              </section>
             </Link>
-            <Link to="/company" className={styles.nav_item}>
-              <div className={styles.left_Icon}>
-                <AcUnitOutlinedIcon style={{ fontSize: "16px" }} />
-              </div>
-              <div>Company</div>
+            <Link to="/company" className={styles.nav_container}>
+              <section className={styles.nav_item}>
+                <div className={styles.left_Icon}>
+                  <AcUnitOutlinedIcon />
+                </div>
+                <div className={styles.list_item_title}>
+                  Copmany
+                  <KeyboardArrowRightOutlinedIcon />
+                </div>
+              </section>
+
+              <section className={styles.nav_subitem_dropdown_content}>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>Test 1</div>
+                </Link>
+                <Link to="#" className={styles.nav_item}>
+                  <div className={styles.left_Icon}>
+                    <AcUnitOutlinedIcon />
+                  </div>
+                  <div className={styles.list_item_title}>test 2</div>
+                </Link>
+              </section>
             </Link>
           </div>
         </div>
