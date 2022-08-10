@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@mui/styles";
 import { useSnackbar } from "notistack";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import styles from "./Test.module.css";
+import styles from "./Navbar.module.css";
 import axios from "axios";
 import Button from "@mui/material/Button";
 import AcUnitOutlinedIcon from "@mui/icons-material/AcUnitOutlined";
