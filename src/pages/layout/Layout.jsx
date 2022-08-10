@@ -301,9 +301,9 @@ export default function Layout() {
       >
         <Navbar />
       </div>
-      <div style={{ width: "calc(100% - 4rem)", margin: "20px auto 0" }}>
+      {/* <div style={{ width: "calc(100% - 4rem)", margin: "20px auto 0" }}>
         <Navigation />
-      </div>
+      </div> */}
     </div>
   );
   
